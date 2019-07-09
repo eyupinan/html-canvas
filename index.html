@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+            canvas {
+    border:10px solid #d3d3d3;
+    background-color: #f1f1f1;
+}</style>
+    <script>
+        var liste=[0];
+        var element_adet=0
+var alan={
+    canvas : document.createElement("canvas"),
+    start : function(){
+        this.canvas.width = 1200;
+        this.canvas.height = 600;
+        this.canvas.s
+        this.context=this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval=setInterval(update_sayac,20);},
+    
+    clear : function() {
+        this.context.clearRect(0, 0,1200,600);
+    }    
+    }
+    
+
+
+function startGame() {
+    liste[0]= new component(30, 30, "red", 100, 120);
+    element_adet++;
+    alan.start();
+}
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.yonX=0;
+    this.yonY=0;
+    this.x = x;
+    this.y = y;  
+    this.update = function() {
+        ctx = alan.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        
+        if (this.yonX!=0 );
+            this.x += this.speedX*this.yonX;
+        if (this.yonX!=0); 
+            this.y += this.speedY*this.yonY;  
+        
+        if (1170<parseInt(this.x) || this.x<=0){
+            this.x -= this.speedX*this.yonX;
+            this.yonX=this.yonX*-1;
+        }
+        if (this.y>=570 || this.y<=0){
+            this.y -= this.speedY*this.yonY;
+            this.yonY=this.yonY*-1;
+        }
+        
+    }    
+}
+function update_sayac(){
+    alan.clear();
+    for (var i =0;i<liste.length;i++){
+        liste[i].newPos();
+        liste[i].update();
+    }
+    
+}
+function hız_degisimX(){
+    
+    liste[element_adet-1].speedX=parseInt(document.getElementById("hızX").value);
+}
+function hız_degisimY(){
+    
+        liste[element_adet-1].speedY=parseInt(document.getElementById("hızY").value);
+
+    
+}
+function moveup(){
+    
+        liste[element_adet-1].yonY=-1;
+
+    
+}
+function movedown(){
+  
+        liste[element_adet-1].yonY=1;
+
+    
+}
+function moveleft(){
+
+        liste[element_adet-1].yonX=-1;
+
+    
+}
+function moveright(){
+
+        liste[element_adet-1].yonX=1;
+
+
+    
+}
+function stop(){
+    
+    
+    liste[element_adet-1].yonY=0;
+    liste[element_adet-1].yonX=0;
+    
+}
+    
+
+function reset(){
+    
+    startGame();
+}
+function ekle(){
+    element_adet++;
+    red=Math.floor(Math.random() * 255);
+    green=Math.floor(Math.random() * 255);
+    blue=Math.floor(Math.random() * 255);
+    liste.push(new component(30, 30, "RGB("+red+","+green+","+blue+")", 100, 120));
+}
+</script></head>
+<body id="body1" onload="startGame()">
+
+<div style="text-align:center;width:680px;position:absolute;">
+  <button onclick="moveup()" style="position:absolute;left:15%;top:5%;">UP</button><br><br>
+  <button onclick="moveleft()" style="position:absolute;left:5%;top:25%;">LEFT</button>
+  <button onclick="moveright()" style="position:absolute;left:25%;top:25%;">RIGHT</button><br><br>
+  <button onclick="movedown()" style="position:absolute;left:15%;top:45%;">DOWN</button>
+  <button onclick="stop()" style="position:absolute;left:5%;top:85%;">STOP</button>
+  <button onclick="reset()" style="position:absolute;left:15%;top:85%;">RESET</button>
+
+  <input type="text"  id="hızX" style="position:absolute;left:60%;top:10%;"/>
+  <button onclick="hız_degisimX()" style="position:absolute;left:80%;top:10%;">x hızı değiştir</button>
+  <input type="text"  id="hızY" style="position:absolute;left:60%;top:50%;"/>
+  <button onclick="hız_degisimY()" style="position:absolute;left:80%;top:50%;">y hızı değiştir</button>
+  <button onclick="ekle()" style="position:absolute;left:70%;top:90%;">Yeni küp ekle</button>
+  <p style="position:absolute;left:100%;top:30%;width:40%;"> x ve y hız değerlerine tam sayı verip yön tuşlarına basın .</p>
+</div>
+
+
+</body>
+</html>
