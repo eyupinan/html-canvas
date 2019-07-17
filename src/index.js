@@ -1,14 +1,10 @@
 
-
-//var css = require("./main.css");
-//import css from "./main.css";
 var liste= [];
 var elementAdet = 0;
 var then = 0;
 var fps = 360;
 var sinArtık=0;
 var cosArtık=0;
-
 var alan = {
   canvas2: document.createElement("canvas"),
   start: function() {
@@ -29,7 +25,6 @@ function startGame() {
  var  sa = new component(30, 30, "#ff0000", 100, 120);
  liste.push(sa);
   elementAdet++;
-  
   alan.start();
 }
 
