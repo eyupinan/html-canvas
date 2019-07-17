@@ -37,12 +37,10 @@ function component(width, height, color, x, y) {
   this.color = color;
   this.width = width;
   this.height = height;
-  this.speedX = 0;
-  this.speedY = 0;
+
   this.degree=0;
   this.speed=0;
-  this.yonX = 0;
-  this.yonY = 0;
+
   this.x = x;
   this.y = y;
     
@@ -177,10 +175,6 @@ function updateSayac() {
   then = time;
   requestAnimationFrame(updateSayac);
 }
-
-
-
-
 function stop() {
   liste[elementAdet - 1].speed= 0;
   
