@@ -65,5 +65,5 @@ Triggers event
 evnt.emit(eventName,...args);
 ```
 
-*eventName : name of event
+* eventName : name of event
 * args : parameters for listeners
