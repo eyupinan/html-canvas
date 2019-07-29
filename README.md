@@ -10,6 +10,8 @@ npm install evemt
 
 ## Usage
 
+### Example Code
+
 ```javascript
 var core = require('evemt')
 
@@ -24,3 +26,44 @@ evnt.on("message",func1,func2);
 evnt.emit('message', 'Good Bye World')
 ```
 
+### On
+
+Add an event listener to support chained calls.
+
+```javascript
+evnt.on(eventName,...args);
+```
+* EventName : name of event
+* args : listener functions
+
+### once 
+
+Add an event listener that can only be triggered once
+
+```javascript
+evnt.on(eventName,...args);
+```
+* EventName : name of event
+* args : listener functions
+
+### remove
+
+Delete an named event Listener
+
+```javascript
+evnt.remove(eventName,func);
+```
+
+* eventName : name of event
+* func : name of function as String
+
+### emit 
+
+Triggers event
+
+```javascript
+evnt.emit(eventName,...args);
+```
+
+*eventName : name of event
+* args : parameters for listeners
