@@ -1,11 +1,13 @@
-
-
 # Event Emitter
 
 ## Install
 
-You can install 
+The library is available as an npm package. To install the package run:
 
 ```
 npm install evemt
 ```
+
+##Usage
+
+
