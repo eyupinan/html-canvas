@@ -1,11 +1,10 @@
 
 
-#Event Emitter
+# Event Emitter
 
-##Install
+## Install
 
 You can install 
 
 ```
-npm install evemt
-```
+npm inst
