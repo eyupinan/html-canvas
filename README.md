@@ -52,7 +52,7 @@ evnt.emit(eventName,...args);
 * eventName : name of event
 * args : parameters for listeners
 
-### Example Code
+## Example Code
 
 ```javascript
 var core = require('evemt')
