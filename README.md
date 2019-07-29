@@ -7,4 +7,5 @@
 You can install 
 
 ```
-npm inst
+npm install evemt
+```
